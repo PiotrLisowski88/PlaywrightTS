@@ -45,11 +45,19 @@ for (const shop of shops) {
 
       await shopPage.navigateToUrl(shop.baseUrl)
 
-      await shopPage.cartHeaderButton.click()
-      await shopPage.checkoutButton.click()
-      await shopPage.removeItemButton.click()
-      await shopPage.confirmRemoveItemButton.click()
-      await expect(page.getByText(shop.emptyCartMessageContainer)).toBeVisible()
+      await test.step('Open the cart', async () => {
+        await shopPage.cartHeaderButton.click()
+        await shopPage.checkoutButton.click()
+      })
+
+      await test.step('Remove the product from the cart', async () => {
+        await shopPage.removeItemButton.click()
+        await shopPage.confirmRemoveItemButton.click()
+      })
+
+      await test.step('Verify the cart is empty', async () => {
+        await expect(page.getByText(shop.emptyCartMessageContainer)).toBeVisible()
+      })
     })
 
     test(`Test Case 3: Verify no broken links/images on product page - ${shop.name}`, async ({

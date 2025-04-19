@@ -21,8 +21,7 @@ export class ShopPage extends BasePage {
     this.checkoutButton = page.getByTestId('miniCartCheckoutButton')
     this.productNameHeader = page.locator('.product-heading > h1')
     this.cartList = page.getByTestId('regular-cart-list')
-    this.cartHeaderButton = page.getByTestId('cartIcon').locator('path')
-    this.checkoutButton = page.getByTestId('miniCartCheckoutButton')
+    this.cartHeaderButton = page.getByTestId('cartIcon').first()
     this.removeItemButton = page.getByTestId('regular-cart-list').getByTestId('cartRemoveButton')
     this.confirmRemoveItemButton = page.getByTestId('remove-item-submit-button')
     this.emptyCartMessageContainer = page

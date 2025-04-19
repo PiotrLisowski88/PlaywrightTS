@@ -16,6 +16,7 @@ export class BasePage {
   }
 
   @step('Navigate to the URL')
+  
   async navigateToUrl(url: string) {
     await this.page.goto(url)
     if (await this.cookieBanner.isVisible()) {

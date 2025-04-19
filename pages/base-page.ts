@@ -8,10 +8,14 @@ export class BasePage {
   readonly confirmAgeButton: Locator
 
   // simple comment
+
   constructor(page: Page) {
+
     this.page = page
     this.acceptCookiesButton = page.locator('#onetrust-accept-btn-handler')
     this.cookieBanner = page.locator('#onetrust-group-container')
+
+    
     this.ageConfirmationWrapper = page.locator('.ageconfirmation__wrapper')
     this.confirmAgeButton = page.locator('.ageconfirmation__actionWrapper > div > span')
   }
